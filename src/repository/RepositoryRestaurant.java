@@ -3,6 +3,7 @@ package repository;
 import entities.Lanche;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class RepositoryRestaurant {
@@ -23,18 +24,17 @@ public class RepositoryRestaurant {
         for (Lanche lanche : list) {
             if (id == lanche.getId()) {
                 return lanche;
+            }else{
+                throw new RuntimeException("Snack not found");
             }
         }
         return null;
     }
 
-    public boolean checkFood(int id){
-        boolean c = false;
-        for (Lanche lanche : list) {
-            if (id == lanche.getId()) {
-                c = true;
-            }
+    public void checkSnack(int id){
+        long d = list.stream().filter(e -> e.getId() == id).map(e -> e.getId()).count();
+        if(d <= 0 ){
+            throw new RuntimeException("snack does not exist");
         }
-        return c;
     }
 }

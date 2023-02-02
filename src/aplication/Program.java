@@ -29,7 +29,7 @@ public class Program {
 
                 System.out.println("enter the snack number: ");
                 int id = in.nextInt();
-                if (rr.checkFood(id)) {
+                rr.checkSnack(id);
                 System.out.println("enter the amount: ");
                 int quantidade = in.nextInt();
 
@@ -37,11 +37,10 @@ public class Program {
                     System.out.println("");
                     System.out.println("Total price: R$" + String.format("%.2f", Purchase.totalPurchase(lanche, quantidade)));
                     System.out.println("");
-                }else{
-                    System.out.println("Snack not found");
-                    break;
-                }
+                
             }
+        }catch(RuntimeException e){
+            System.out.println(e.getMessage());
         }
     }
 

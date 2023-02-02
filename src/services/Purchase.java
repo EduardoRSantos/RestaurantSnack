@@ -6,7 +6,6 @@ public class Purchase {
     
     public static double totalPurchase(Lanche lanche, int quantidade) {
             return lanche.getPrice() * quantidade;
-
     }
 
 }
